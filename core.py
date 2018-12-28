@@ -40,9 +40,9 @@ def crawl():
         tweetSet.add(tweetObj)
         id = id + 1
 
-    makeJSON(tweetSet)
+    makeJSON(tweetSet, username)
 
-def makeJSON(tweetSet):
+def makeJSON(tweetSet, username):
     data = {}
     data['documents'] = []
     for tweet in tweetSet:
@@ -54,5 +54,5 @@ def makeJSON(tweetSet):
             'text': text
         })
 
-    with open('data.txt', 'w') as outfile:
+    with open(username + '.txt', 'w') as outfile:
             json.dump(data, outfile)
