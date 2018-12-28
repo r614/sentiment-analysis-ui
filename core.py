@@ -2,6 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import json
+import requests
+import http.client, urllib.request, urllib.parse, urllib.error, base64
+
 
 class Tweet:
     def __init__(self, id, text):
@@ -33,14 +36,14 @@ def crawl():
 
     tweet_list = browser.find_elements_by_class_name('tweet-text')
     tweetSet = set()
-    id = 0
+    id = 1
 
     for tweet in tweet_list:
         tweetObj = Tweet(id, tweet.text)
         tweetSet.add(tweetObj)
         id = id + 1
 
-    makeJSON(tweetSet, username)
+    connAzure(makeJSON(tweetSet, username))
 
 def makeJSON(tweetSet, username):
     data = {}
@@ -56,3 +59,13 @@ def makeJSON(tweetSet, username):
 
     with open(username + '.txt', 'w') as outfile:
             json.dump(data, outfile)
+
+    return data
+
+def connAzure(data):
+    subscription_key = ""
+    sentiment_url = "https://canadacentral.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment"
+    headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+    response  = requests.post(sentiment_url, headers=headers, json=data)
+    sentiments = response.json()
+    print(sentiments)

@@ -1,1 +1,1 @@
-{"documents": [{"language": "en", "id": 0, "text": "Basic stuff works! Yay! Now time to test with two tweets."}, {"language": "en", "id": 1, "text": "Bot testing, send help!"}]}
+{"documents": [{"language": "en", "id": 2, "text": "Basic stuff works! Yay! Now time to test with two tweets."}, {"language": "en", "id": 1, "text": "Bot testing, send help!"}]}
