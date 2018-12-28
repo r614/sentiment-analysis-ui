@@ -1,0 +1,22 @@
+{
+  "name": "sentiment-analysis-ui",
+  "version": "1.0.0",
+  "description": "UI For the crawler",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r614/sentiment-analysis-ui.git"
+  },
+  "author": "Roshan Pawar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r614/sentiment-analysis-ui/issues"
+  },
+  "homepage": "https://github.com/r614/sentiment-analysis-ui#readme",
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
+}
